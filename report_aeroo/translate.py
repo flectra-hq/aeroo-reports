@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 ##############################################################################
 #
-#    OpenERP, Open Source Management Solution
+#    Flectra, Open Source Management Solution
 #    Copyright (C) 2004-2009 Tiny SPRL (<http://tiny.be>).
 #    Copyright (c) 2009-2011 Alistek (http://www.alistek.com).
 #
@@ -22,26 +22,26 @@
 
 import os
 import logging
-import openerp.tools as tools
-from openerp.tools.translate import trans_parse_rml, trans_parse_xsl, trans_parse_view, _extract_translatable_qweb_terms
+import flectra.tools as tools
+from flectra.tools.translate import trans_parse_rml, trans_parse_xsl, trans_parse_view, _extract_translatable_qweb_terms
 import fnmatch
 from os.path import join
 from lxml import etree
-from openerp.tools import misc
-from openerp.tools import osutil
+from flectra.tools import misc
+from flectra.tools import osutil
 from babel.messages import extract
-import openerp
+import flectra
 
 _logger = logging.getLogger(__name__)
 
-WEB_TRANSLATION_COMMENT = "openerp-web"
+WEB_TRANSLATION_COMMENT = "flectra-web"
 ENGLISH_SMALL_WORDS = set("as at by do go if in me no of ok on or to up us we".split())
 
 
 def extend_trans_generate(lang, modules, cr):
     dbname = cr.dbname
 
-    registry = openerp.registry(dbname)
+    registry = flectra.registry(dbname)
     trans_obj = registry['ir.translation']
     model_data_obj = registry['ir.model.data']
     uid = 1
@@ -240,7 +240,7 @@ def extend_trans_generate(lang, modules, cr):
         lambda m: m['name'],
         registry['ir.module.module'].search_read(cr, uid, [('state', '=', 'installed')], fields=['name']))
 
-    path_list = list(openerp.modules.module.ad_paths)
+    path_list = list(flectra.modules.module.ad_paths)
     # Also scan these non-addon paths
     for bin_path in ['osv', 'report' ]:
         path_list.append(os.path.join(tools.config['root_path'], bin_path))
@@ -299,7 +299,7 @@ def extend_trans_generate(lang, modules, cr):
             # QWeb template files
             if fnmatch.fnmatch(root, '*/static/src/xml*'):
                 for fname in fnmatch.filter(files, '*.xml'):
-                    babel_extract_terms(fname, path, root, 'openerp.tools.translate:babel_extract_qweb',
+                    babel_extract_terms(fname, path, root, 'flectra.tools.translate:babel_extract_qweb',
                                         extra_comments=[WEB_TRANSLATION_COMMENT])
 
     out = []
@@ -310,5 +310,5 @@ def extend_trans_generate(lang, modules, cr):
     return out
 
 import sys
-sys.modules['openerp.tools.translate'].trans_generate = extend_trans_generate
+sys.modules['flectra.tools.translate'].trans_generate = extend_trans_generate
 

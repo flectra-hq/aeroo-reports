@@ -5,10 +5,10 @@
 #
 ################################################################################
 
-from odoo import api, models, fields, _
-from odoo.exceptions import except_orm, Warning
+from flectra import api, models, fields, _
+from flectra.exceptions import except_orm, Warning
 
-from odoo.report import interface
+from flectra.report import interface
 import re
 
 class report_print_actions(models.TransientModel):

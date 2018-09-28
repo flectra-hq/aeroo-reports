@@ -4,7 +4,7 @@
 //
 //##############################################################################
 
-odoo.define('report_aeroo.report', function(require){
+flectra.define('report_aeroo.report', function(require){
 'use strict';
 
 var ActionManager= require('web.ActionManager');
@@ -24,7 +24,7 @@ ActionManager.include({
         if (_.isUndefined(action.data) || _.isNull(action.data) || (_.isObject(action.data) && _.isEmpty(action.data))) {
             if (action.context.active_ids) {
                 aeroo_url += '/' + c_action.context.active_ids.join(',');
-                // odoo does not send context if no data, but I find it quite useful to send it regardless data or no data
+                // flectra does not send context if no data, but I find it quite useful to send it regardless data or no data
                 aeroo_url += '?context=' + encodeURIComponent(JSON.stringify(c_action.context));
             }
         }else{

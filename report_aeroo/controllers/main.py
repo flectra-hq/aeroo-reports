@@ -8,8 +8,8 @@
 import logging
 import json
 
-from odoo.addons.web.controllers import main
-from odoo.http import route, request, content_disposition
+from flectra.addons.web.controllers import main
+from flectra.http import route, request, content_disposition
 
 _logger = logging.getLogger(__name__)
 

@@ -15,11 +15,11 @@ import zipimport
 from lxml import etree
 import logging
 
-from odoo import api, fields, models
-from odoo.exceptions import UserError
-from odoo.tools import file_open
-from odoo.tools.translate import _
-from odoo.modules import module
+from flectra import api, fields, models
+from flectra.exceptions import UserError
+from flectra.tools import file_open
+from flectra.tools.translate import _
+from flectra.modules import module
 
 _logger = logging.getLogger(__name__)
 
@@ -181,7 +181,7 @@ class ReportAeroo(models.Model):
         ('parser','Parser'),
         ], string='Template source', default='database', index=True)
     parser_def = fields.Text('Parser Definition',
-        default="""from odoo import api, models
+        default="""from flectra import api, models
 class Parser(models.AbstractModel):
     _inherit = 'report.report_aeroo.abstract'
     _name = 'report.thisismyparserservicename'"""

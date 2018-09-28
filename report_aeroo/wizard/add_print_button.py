@@ -5,7 +5,7 @@
 #
 ################################################################################
 
-from odoo import api, fields, models
+from flectra import api, fields, models
 
 special_reports = [
     'printscreen.list'

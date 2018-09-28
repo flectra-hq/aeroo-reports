@@ -6,10 +6,10 @@
 ################################################################################
 
 import logging
-from odoo import api, models
-from odoo.tools import pycompat
-from odoo.addons.report_aeroo.exceptions import ProgrammingError
-from odoo.tools.translate import _
+from flectra import api, models
+from flectra.tools import pycompat
+from flectra.addons.report_aeroo.exceptions import ProgrammingError
+from flectra.tools.translate import _
 
 _logger = logging.getLogger(__name__)
 

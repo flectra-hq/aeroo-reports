@@ -5,9 +5,9 @@
 #
 ################################################################################
 
-from odoo import api, models, fields
-from odoo.tools.translate import _
-from odoo.exceptions import Warning
+from flectra import api, models, fields
+from flectra.tools.translate import _
+from flectra.exceptions import Warning
 import re
 import logging
 _logger = logging.getLogger(__name__)
