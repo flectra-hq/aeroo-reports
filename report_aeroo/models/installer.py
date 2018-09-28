@@ -8,11 +8,11 @@
 import os
 from base64 import b64encode
 
-from odoo.addons.report_aeroo.docs_client_lib import DOCSConnection
+from flectra.addons.report_aeroo.docs_client_lib import DOCSConnection
 
-from odoo import api, fields, models
-from odoo.tools import file_open
-from odoo.tools.translate import _
+from flectra import api, fields, models
+from flectra.tools import file_open
+from flectra.tools.translate import _
 
 _url = 'xhttp://www.alistek.com/aeroo_banner/v11_1_report_aeroo.png'
 

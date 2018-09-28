@@ -5,8 +5,8 @@
 #
 ################################################################################
 
-from openerp.tools.translate import _
-from openerp.osv import osv, fields
+from flectra.tools.translate import _
+from flectra.osv import osv, fields
 
 def _reopen(self, res_id, model):
     return {'type': 'ir.actions.act_window',

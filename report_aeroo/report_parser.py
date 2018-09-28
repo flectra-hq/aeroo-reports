@@ -19,15 +19,15 @@ from .exceptions import ConnectionError
 
 from genshi.template.eval import StrictLookup
 
-from odoo import release as odoo_release
-from odoo import api, models, fields
-from odoo.tools import file_open, frozendict
-from odoo.tools.translate import _, translate
-from odoo.tools.misc import formatLang as odoo_fl
-from odoo.tools.misc import format_date as odoo_fd
-from odoo.tools.safe_eval import safe_eval
-from odoo.modules import load_information_from_description_file
-from odoo.exceptions import MissingError
+from flectra import release as flectra_release
+from flectra import api, models, fields
+from flectra.tools import file_open, frozendict
+from flectra.tools.translate import _, translate
+from flectra.tools.misc import formatLang as flectra_fl
+from flectra.tools.misc import format_date as flectra_fd
+from flectra.tools.safe_eval import safe_eval
+from flectra.modules import load_information_from_description_file
+from flectra.exceptions import MissingError
 
 
 _logger = logging.getLogger(__name__)
@@ -236,12 +236,12 @@ class ReportAerooAbstract(models.AbstractModel):
     def _format_lang(
             self, value, digits=None, grouping=True, monetary=False, dp=False,
             currency_obj=False, date=False, date_time=False):
-        """ We add date and date_time for backwards compatibility. Odoo has
+        """ We add date and date_time for backwards compatibility. Flectra has
         split the method in two (formatlang and format_date)
         """
         if date or date_time:
-            return odoo_fd(self.env, value)
-        return odoo_fl(
+            return flectra_fd(self.env, value)
+        return flectra_fl(
             self.env, value, digits, grouping, monetary, dp, currency_obj)
 
     def _set_objects(self, model, docids):
@@ -373,7 +373,7 @@ class ReportAerooAbstract(models.AbstractModel):
         ser.add_generator_info('Aeroo Lib/%s Aeroo Reports/%s'
                                % (aeroolib_version, version))
         ser.add_custom_property('Aeroo Reports %s' % version, 'Generator')
-        ser.add_custom_property('Odoo %s' % odoo_release.version, 'Software')
+        ser.add_custom_property('Flectra %s' % flectra_release.version, 'Software')
         ser.add_custom_property(module_info['website'], 'URL')
         ser.add_creation_date(time.strftime('%Y-%m-%dT%H:%M:%S'))
 

@@ -5,7 +5,7 @@
 #
 ################################################################################
 
-from odoo.exceptions import except_orm
+from flectra.exceptions import except_orm
 
 class ConnectionError(except_orm):
     """ Basic connection error.

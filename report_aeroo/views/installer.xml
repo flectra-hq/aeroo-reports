@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<flectra>
   <data>
     
     <!--DOCS Config wizard -->
@@ -88,4 +88,4 @@
 	<menuitem id="menu_docs_config_wizard" action="action_docs_config_wizard" parent="base.reporting_menuitem" sequence="15"/>
 
   </data>
-</odoo>
+</flectra>

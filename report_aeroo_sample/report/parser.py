@@ -5,7 +5,7 @@
 #
 ################################################################################
 
-from odoo import api, models
+from flectra import api, models
 
 
 class Parser(models.AbstractModel):
@@ -15,7 +15,7 @@ class Parser(models.AbstractModel):
 
     @api.model
     def aeroo_report(self, docids, data):
-        import pdb
-        pdb.set_trace()
+        # import pdb
+        # pdb.set_trace()
         self = self.with_context(test_parser='parser works ok!')
         return super(Parser, self).aeroo_report(docids, data)

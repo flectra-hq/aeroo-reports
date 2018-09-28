@@ -16,7 +16,7 @@
 # of the License, or (at your option) any later version.
 #
 # This module is GPLv3 or newer and incompatible
-# with OpenERP SA "AGPL + Private Use License"!
+# with Flectra"AGPL + Private Use License"!
 #
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
